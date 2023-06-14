@@ -1,0 +1,6 @@
+backups
+*.expanded
+*.tbl
+*.py[co]
+state/*.bak
+state/*.var

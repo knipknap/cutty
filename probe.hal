@@ -1,0 +1,8 @@
+loadrt or2 names=probe-or
+
+addf probe-or servo-thread
+
+#  ---probe signals---
+net length-probe probe-or.in0 <= hm2_7i76e.0.7i76.0.0.input-14-not
+net stock-probe probe-or.in1 <= hm2_7i76e.0.7i76.0.0.input-15-not
+net probe probe-or.out => motion.probe-input

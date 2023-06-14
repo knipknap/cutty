@@ -1,0 +1,14 @@
+loadrt estop_latch
+loadrt message names=xestop messages="External E-Stop"
+
+addf estop-latch.0 servo-thread
+
+#  ---estop signals---
+
+#net estop-out     <=  iocontrol.0.user-enable-out
+#net estop-out     =>  iocontrol.0.emc-enable-in
+net estop-loopout iocontrol.0.emc-enable-in       <= estop-latch.0.ok-out
+net estop-loopin  iocontrol.0.user-enable-out     => estop-latch.0.ok-in
+net estop-reset   iocontrol.0.user-request-enable => estop-latch.0.reset
+net xestop        estop-latch.0.fault-in          <= hm2_7i76e.0.7i76.0.0.input-12-not
+net estop-loopout => hm2_7i76e.0.7i76.0.0.output-02

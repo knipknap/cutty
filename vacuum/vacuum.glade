@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<interface>
+  <!-- interface-requires gladevcp 0.0 -->
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+
+  <object class="GtkImage" id="vacuum">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">vacuum.png</property>
+  </object>
+
+  <object class="GtkWindow" id="window1">
+    <property name="visible">True</property>
+    <property name="can-focus">False</property>
+    <child>
+      <object class="GtkFrame" id="frm_cooling">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+	<property name="label-xalign">0.5</property>
+        <child type="label">
+          <object class="GtkLabel" id="lbl_frame_vacuum">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="label" translatable="yes">&lt;b&gt;Vacuum&lt;/b&gt;</property>
+            <property name="use-markup">True</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkToggleButton" id="tbtn_vacuum">
+            <property name="use-action-appearance">False</property>
+            <property name="width-request">48</property>
+            <property name="height-request">48</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="image">vacuum</property>
+            <signal name="toggled" handler="on_vacuum_pump_toggled" swapped="no"/>
+          </object>
+          <packing>
+            <property name="left-attach">0</property>
+            <property name="top-attach">0</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
