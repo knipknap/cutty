@@ -74,6 +74,19 @@ net y1-neg-limit  =>  joint.1.neg-lim-sw-in
 net y1-pos-limit  =>  joint.1.pos-lim-sw-in
 net y1-alarm      =>  joint.1.amp-fault-in
 
+# PID tuning
+setp   pid.y1.Pgain     [JOINT_1]P
+setp   pid.y1.Igain     [JOINT_1]I
+setp   pid.y1.Dgain     [JOINT_1]D
+setp   pid.y1.bias      [JOINT_1]BIAS
+setp   pid.y1.FF0       [JOINT_1]FF0
+setp   pid.y1.FF1       [JOINT_1]FF1
+setp   pid.y1.FF2       [JOINT_1]FF2
+setp   pid.y1.deadband  [JOINT_1]DEADBAND
+setp   pid.y1.maxoutput [JOINT_1]MAX_OUTPUT
+setp   pid.y1.error-previous-target true
+#setp   pid.y1.maxerror .0005
+
 #*******************
 #  AXIS Y JOINT 2
 #*******************
@@ -103,6 +116,19 @@ net y2-neg-limit  =>  joint.2.neg-lim-sw-in
 net y2-pos-limit  =>  joint.2.pos-lim-sw-in
 net y2-alarm      =>  joint.2.amp-fault-in
 
+# PID tuning
+setp   pid.y2.Pgain     [JOINT_2]P
+setp   pid.y2.Igain     [JOINT_2]I
+setp   pid.y2.Dgain     [JOINT_2]D
+setp   pid.y2.bias      [JOINT_2]BIAS
+setp   pid.y2.FF0       [JOINT_2]FF0
+setp   pid.y2.FF1       [JOINT_2]FF1
+setp   pid.y2.FF2       [JOINT_2]FF2
+setp   pid.y2.deadband  [JOINT_2]DEADBAND
+setp   pid.y2.maxoutput [JOINT_2]MAX_OUTPUT
+setp   pid.y2.error-previous-target true
+#setp   pid.y2.maxerror .0005
+
 #*******************
 #  AXIS Z JOINT 3
 #*******************
@@ -131,3 +157,16 @@ net z-pos-limit  =>  joint.3.home-sw-in
 net z-neg-limit  =>  joint.3.neg-lim-sw-in
 net z-pos-limit  =>  joint.3.pos-lim-sw-in
 net z-alarm      =>  joint.3.amp-fault-in
+
+# PID tuning
+setp   pid.z.Pgain     [JOINT_3]P
+setp   pid.z.Igain     [JOINT_3]I
+setp   pid.z.Dgain     [JOINT_3]D
+setp   pid.z.bias      [JOINT_3]BIAS
+setp   pid.z.FF0       [JOINT_3]FF0
+setp   pid.z.FF1       [JOINT_3]FF1
+setp   pid.z.FF2       [JOINT_3]FF2
+setp   pid.z.deadband  [JOINT_3]DEADBAND
+setp   pid.z.maxoutput [JOINT_3]MAX_OUTPUT
+setp   pid.z.error-previous-target true
+#setp   pid.z.maxerror .0005
