@@ -31,9 +31,11 @@ O200 if [#<_hal[gmoccapy.toolmeasurement]> EQ 0]
 O200 return [3] ; indicate no tool measurement 
 O200 endif
 
+; move to the tool sensor
 G53 G0 X[#<_ini[TOOLSENSOR]X>] Y[#<_ini[TOOLSENSOR]Y>]
 G53 G0 Z[#<_ini[TOOLSENSOR]Z>]
 
+; Check that searchvel and problevel are configured
 O300 if [#<_hal[gmoccapy.searchvel]> LE 0]
 O300 return [-1] ; indicate searchvel <= 0 
 O300 endif
@@ -42,11 +44,21 @@ O400 if [#<_hal[gmoccapy.probevel]> LE 0]
 O400 return [-2] ; indicate probevel <= 0 
 O400 endif
 
+; turn on air
+M7
+
+; Touch sensor at searchvel
 F #<_hal[gmoccapy.searchvel]>
 G91
 G38.2 Z #<_ini[TOOLSENSOR]MAXPROBE>
-G0 Z1
-; This is commented out only for sim.
+
+; Move back up just a bit
+G0 Z1.5
+
+; turn off air
+M9
+
+; Touch sensor at probevel
 F #<_hal[gmoccapy.probevel]>
 G38.2 Z-4
 
