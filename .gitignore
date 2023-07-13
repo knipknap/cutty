@@ -3,4 +3,5 @@ backups
 *.tbl
 *.py[co]
 state/*.bak
+state/gmoccapy.pref
 state/*.var
